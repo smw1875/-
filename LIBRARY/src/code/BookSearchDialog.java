@@ -32,7 +32,7 @@ public class BookSearchDialog extends JDialog implements ActionListener {
         JPanel panelCenter = new JPanel();
         panel1.add(panelCenter, BorderLayout.CENTER);
         panelCenter.setLayout(new FlowLayout());
-        panelCenter.add(new JLabel("°Ë»ö "));
+        panelCenter.add(new JLabel("search "));
         searchTextField = new JTextField(20);
         panelCenter.add(searchTextField);
 
@@ -51,6 +51,11 @@ public class BookSearchDialog extends JDialog implements ActionListener {
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 dispose();
+                
+                
+                
+                
+                
             }
         });
     }
