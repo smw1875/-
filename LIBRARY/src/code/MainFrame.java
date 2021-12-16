@@ -21,13 +21,19 @@ public class MainFrame extends JFrame {
         memberMenu.add(membersMenuItem);
 
         JMenu bookMenu = new JMenu("Book");
-        JMenuItem bookAddMenuItem = new JMenuItem("Add Book ...");
         JMenuItem bookMenuItem = new JMenuItem("Books ...");
+        JMenuItem bookAddMenuItem = new JMenuItem("Add Book ...");
         JMenuItem bookSearchItem = new JMenuItem("Search Book ...");
-        bookMenu.add(bookAddMenuItem);
+        JMenuItem bookDeleteItem = new JMenuItem("Book Delete ...");
+        JMenuItem bookborrowItem = new JMenuItem("Book borrow ...");
+        JMenuItem bookReturnItem = new JMenuItem("Book Return ...");
+        
         bookMenu.add(bookMenuItem);
+        bookMenu.add(bookAddMenuItem);
         bookMenu.add(bookSearchItem);
-
+        bookMenu.add(bookDeleteItem);
+        bookMenu.add(bookborrowItem);
+        bookMenu.add(bookReturnItem);
         mb.add(personMenu);
         mb.add(memberMenu);
         mb.add(bookMenu);
@@ -36,9 +42,12 @@ public class MainFrame extends JFrame {
         membersMenuItem.addActionListener(menuListener);
         loginMenuItem.addActionListener(menuListener);
         logoutMenuItem.addActionListener(menuListener);
-        bookAddMenuItem.addActionListener(menuListener);
         bookMenuItem.addActionListener(menuListener);
+        bookAddMenuItem.addActionListener(menuListener);       
         bookSearchItem.addActionListener(menuListener);
+        bookDeleteItem.addActionListener(menuListener);
+        bookborrowItem.addActionListener(menuListener);
+        bookReturnItem.addActionListener(menuListener);
         setJMenuBar(mb);
     }
 

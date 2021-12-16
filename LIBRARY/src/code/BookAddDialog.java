@@ -63,13 +63,13 @@ public class BookAddDialog extends JDialog implements ActionListener {
         panelCenter.add(new JLabel("publisher"));
         publisherTextField = new JTextField(20);
         panelCenter.add(publisherTextField);
-        panelCenter.add(new JLabel("book_date"));
+        panelCenter.add(new JLabel("bookdate"));
         bookdateTextField = new JTextField(20);
         panelCenter.add(bookdateTextField);
         panelCenter.add(new JLabel("status       "));
         statusTextField = new JTextField(20);
         panelCenter.add(statusTextField);
-        panelCenter.add(new JLabel("regist_date"));
+        panelCenter.add(new JLabel("registdate"));
         registdateTextField = new JTextField(20);
         panelCenter.add(registdateTextField);
 
@@ -103,7 +103,7 @@ public class BookAddDialog extends JDialog implements ActionListener {
 
     public int checkDateField(String text) {
         try {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
             dateFormat.parse(text);
             return 1;
         } catch (Exception e) {
@@ -138,13 +138,13 @@ public class BookAddDialog extends JDialog implements ActionListener {
                 JOptionPane.showMessageDialog(null, "The publisher is wrong");
                 publisherTextField.requestFocus();
             } else if (bookdateTextField.getText().length() == 0 || checkDateField(bookdateTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The book_date is wrong");
+                JOptionPane.showMessageDialog(null, "The bookdate is wrong");
                 bookdateTextField.requestFocus();
             } else if (statusTextField.getText().length() == 0 || checkBoolean(statusTextField.getText()) == 0) {
                 JOptionPane.showMessageDialog(null, "The status is wrong");
                 statusTextField.requestFocus();
             } else if (registdateTextField.getText().length() == 0 || checkDateField(registdateTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The regist_date is wrong");
+                JOptionPane.showMessageDialog(null, "The registdate is wrong");
                 registdateTextField.requestFocus();
             } else {
                 try {

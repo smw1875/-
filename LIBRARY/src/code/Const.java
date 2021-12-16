@@ -9,5 +9,8 @@ public class Const {
     public static final String BOOKADD = "Add Book ...";
     public static final String BOOKS = "Books ...";
     public static final String BOOKSEARCH = "Search Book ...";
+    public static final String BOOKDELETE = "Book Delete ...";
+    public static final String BOOKBORROW = "Book borrow ...";
+    public static final String BOOKRETURN = "Book Return ...";
 } 
 //singleton 디자인패턴이 적용되어 어디서든지 생성한 객체를 사용합니다.

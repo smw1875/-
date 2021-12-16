@@ -161,6 +161,16 @@ public class Database {
             e.printStackTrace();
         }
     }
+    public void bookDelete(String id) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate("DELETE FROM book WHERE id =" + id);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     
     public void searchBookJTable(DefaultTableModel model, String keyword) {
         System.out.println(getNext("book"));
@@ -185,6 +195,27 @@ public class Database {
 
                 model.addRow(record);
             }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    public void bookborrow(String id) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate("UPDATE book SET status = False WHERE id =" + id);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void bookReturn(String id) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.setQueryTimeout(30);  // set timeout to 30 sec.
+            statement.executeUpdate("UPDATE book SET status = True WHERE id =" + id);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

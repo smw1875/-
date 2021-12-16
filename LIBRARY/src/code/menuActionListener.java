@@ -4,9 +4,10 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.namespace.QName;
 
 class MenuActionListener implements ActionListener {
 
@@ -65,11 +66,83 @@ class MenuActionListener implements ActionListener {
             dialog.show();
             System.out.println("join");
         }
+        else if (e.getActionCommand().equals(Const.BOOKDELETE)) {
+            System.out.println("Book Delete ...");
+            int[] row = table.getSelectedRows();
+            for (int i : row) {
+                String eve = (String) table.getModel().getValueAt(i, 0);
+                try {
+                    Database.getInstance().bookDelete(eve);
+                } catch (SQLException | IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (table != null) {
+                mainWindow.remove(scroll);
+            }
+            createBookTable();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            try {
+                Database.getInstance().insertBookJTable(model);
+                mainWindow.revalidate();
+            } catch (SQLException | IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         else if (e.getActionCommand().equals(Const.BOOKSEARCH)) {
             System.out.println("Search Book ...");
             BookSearchDialog searchDialog = new BookSearchDialog();
             searchDialog.show();
         }
+        else if (e.getActionCommand().equals(Const.BOOKBORROW)) {
+            System.out.println("Book borrow ...");
+            int[] row = table.getSelectedRows();
+            for (int i : row) {
+                String eve = (String) table.getModel().getValueAt(i, 0);
+                try {
+                    Database.getInstance().bookborrow(eve);
+                } catch (SQLException | IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (table != null) {
+                mainWindow.remove(scroll);
+            }
+            createBookTable();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            try {
+                Database.getInstance().insertBookJTable(model);
+                mainWindow.revalidate();
+            } catch (SQLException | IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (e.getActionCommand().equals(Const.BOOKRETURN)) {
+            System.out.println("Book Return ...");
+            int[] row = table.getSelectedRows();
+            for (int i : row) {
+                String eve = (String) table.getModel().getValueAt(i, 0);
+                try {
+                    Database.getInstance().bookReturn(eve);
+                } catch (SQLException | IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (table != null) {
+                mainWindow.remove(scroll);
+            }
+            createBookTable();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+            try {
+                Database.getInstance().insertBookJTable(model);
+                mainWindow.revalidate();
+            } catch (SQLException | IOException ex) {
+                ex.printStackTrace();
+            }
+        }   
     }
 
     public void createTable() {

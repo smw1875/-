@@ -32,7 +32,7 @@ public class BookSearchDialog extends JDialog implements ActionListener {
         JPanel panelCenter = new JPanel();
         panel1.add(panelCenter, BorderLayout.CENTER);
         panelCenter.setLayout(new FlowLayout());
-        panelCenter.add(new JLabel("Keyword "));
+        panelCenter.add(new JLabel("°Ë»ö "));
         searchTextField = new JTextField(20);
         panelCenter.add(searchTextField);
 
