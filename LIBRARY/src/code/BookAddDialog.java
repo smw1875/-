@@ -103,7 +103,7 @@ public class BookAddDialog extends JDialog implements ActionListener {
 
     public int checkDateField(String text) {
         try {
-            DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             dateFormat.parse(text);
             return 1;
         } catch (Exception e) {
@@ -125,38 +125,17 @@ public class BookAddDialog extends JDialog implements ActionListener {
             if (isbnTextField.getText().length() == 0 || checkTextField(isbnTextField.getText()) == 0) {
                 JOptionPane.showMessageDialog(null, "The isbn is wrong");
                 isbnTextField.requestFocus();
-            } else if (numberTextField.getText().length() == 0 || checkTextField(numberTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The number is wrong");
-                numberTextField.requestFocus();
-            } else if (authorTextField.getText().length() == 0) {
-                JOptionPane.showMessageDialog(null, "The author is wrong");
-                authorTextField.requestFocus();
-            } else if (titleTextField.getText().length() == 0) {
-                JOptionPane.showMessageDialog(null, "The title is wrong");
-                titleTextField.requestFocus();
-            } else if (publisherTextField.getText().length() == 0) {
-                JOptionPane.showMessageDialog(null, "The publisher is wrong");
-                publisherTextField.requestFocus();
-            } else if (bookdateTextField.getText().length() == 0 || checkDateField(bookdateTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The bookdate is wrong");
-                bookdateTextField.requestFocus();
-            } else if (statusTextField.getText().length() == 0 || checkBoolean(statusTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The status is wrong");
-                statusTextField.requestFocus();
-            } else if (registdateTextField.getText().length() == 0 || checkDateField(registdateTextField.getText()) == 0) {
-                JOptionPane.showMessageDialog(null, "The registdate is wrong");
-                registdateTextField.requestFocus();
-            } else {
+            }  else {
                 try {
                     Database.getInstance().insertBookData(
-                            isbnTextField.getText(),
-                            numberTextField.getText(),
-                            authorTextField.getText(),
-                            titleTextField.getText(),
-                            publisherTextField.getText(),
-                            bookdateTextField.getText(),
-                            statusTextField.getText(),
-                            registdateTextField.getText());
+                    isbnTextField.getText(),
+                	numberTextField.getText(),
+                	authorTextField.getText(),
+                	titleTextField.getText(),
+                	publisherTextField.getText(),
+                	bookdateTextField.getText(),
+                	statusTextField.getText(),
+                	registdateTextField.getText());
                     if (MenuActionListener.table != null) {
                         MenuActionListener.mainWindow.remove(MenuActionListener.scroll);
                     }

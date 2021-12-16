@@ -95,7 +95,7 @@ public class MemberJoinDialog extends JDialog implements ActionListener {
                 Statement stmt = conn.createStatement();
                 rs = stmt.executeQuery(sql);
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(null, "The name is already taken");
+                    JOptionPane.showMessageDialog(null, "The name is already");
                 } else {
                     try {
                         Database.getInstance().insertMemberData(
